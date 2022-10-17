@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Login : React.FC= () => {
+const Board : React.FC = () => {
 
   return (
     <>
@@ -9,4 +9,4 @@ const Login : React.FC= () => {
   )
 }
 
-export default Login;
+export default Board;
