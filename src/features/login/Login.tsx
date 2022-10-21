@@ -3,11 +3,11 @@ import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { decrement, increment } from '../reducer/reducers';
 
 const Login : React.FC= () => {
-  const count = useAppSelector(state => state.value);
+  const count = useAppSelector(state => state.login);
   const dispatch = useAppDispatch();
 
   const isIncrementing = () => {
-    dispatch(increment())
+    dispatch(increment('jksahdas'))
   }
 
   const isDecrementing = () => {

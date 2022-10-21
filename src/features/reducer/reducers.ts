@@ -2,13 +2,13 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 // Define a type for the slice state
 interface CounterState {
-  value: number
+  login: string
   // name: string
 };
 
 // Define the initial state using that type
 const initialState: CounterState = {
-  value: 0,
+  login: '',
   // name: ''
 } 
 
@@ -17,32 +17,17 @@ const counterSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    increment: state => {
-      state.value += 1;
+    increment: (state, action) => {
+      console.log(action)
+      state.login = action.payload
+      console.log(state)
+      // state.value += 1;
     },
     decrement: state => {
-      state.value -= 1;
+      // state.value -= 1;
     }
   }
 });
-
-// const loginSlice = createSlice({
-//   name: 'login',
-//   // `createSlice` will infer the state type from the `initialState` argument
-//   initialState,
-//   reducers: {
-//     storeName: state => {
-//       state.name = 'bla';
-//     },
-//   }
-// });
-
-// const store = configureStore({
-//   reducer: {
-//     count: counterSlice.reducer,
-//     name: loginSlice.reducer
-//   }
-// })
 
 const store = configureStore({
   reducer: counterSlice.reducer

@@ -16,7 +16,7 @@ const Header : React.FC = () => {
     <>
       <div className='header'>
         <button onClick={toHomeFrame}> Back Home </button>
-        <h1> H O M E </h1>
+        <h1> Argent Bank </h1>
         <button onClick={toLoginFrame}> Login ? </button>
       </div>
     </>
