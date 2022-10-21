@@ -4,7 +4,7 @@ const Header : React.FC = () => {
 
   return (
     <>
-      <div> test </div>
+      <div className='header'> test </div>
     </>
   )
 }

@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+// --- --- --- CAPSULE STYLE --- --- --- //
+
+.capsule{
+  height: 100vh;
+
+  .header{
+    background-color: $secondary;
+    height: 7vh;
+  }
+}
