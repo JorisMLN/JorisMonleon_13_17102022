@@ -1,11 +1,12 @@
 import React from 'react';
 import Login from "../../features/login/Login";
+import Capsule from '../capsule/Capsule';
 
 const LoginFrame : React.FC = () => {
 
   return (
     <>
-      <Login />
+      <Capsule child={<Login />} />
     </>
   )
 }
