@@ -3,28 +3,28 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 // Define a type for the slice state
 interface CounterState {
   login: string
-  // name: string
+  token: string
 };
 
 // Define the initial state using that type
 const initialState: CounterState = {
   login: '',
-  // name: ''
+  token: ''
 } 
 
 const counterSlice = createSlice({
-  name: 'counter',
-  // `createSlice` will infer the state type from the `initialState` argument
+  name: 'auth',
   initialState,
   reducers: {
-    increment: (state, action) => {
+    storeLogin: (state, action) => {
       console.log(action)
       state.login = action.payload
       console.log(state)
-      // state.value += 1;
     },
-    decrement: state => {
-      // state.value -= 1;
+    storeToken: (state, action) => {
+      console.log(action)
+      state.token = action.payload
+      console.log(state)
     }
   }
 });
@@ -35,5 +35,5 @@ const store = configureStore({
 
 store.subscribe(() => console.log(store.getState()));
 
-export const { increment, decrement } = counterSlice.actions;
+export const { storeLogin, storeToken } = counterSlice.actions;
 export default store;

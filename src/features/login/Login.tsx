@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { LegacyRef, useRef } from 'react';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
-import { decrement, increment } from '../reducer/reducers';
+import { storeLogin, storeToken} from '../reducer/reducers';
 
 const Login : React.FC= () => {
   const count = useAppSelector(state => state.login);
   const dispatch = useAppDispatch();
 
-  const isIncrementing = () => {
-    dispatch(increment('jksahdas'))
+  const loginRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
+
+  const isStoringLogin = () => {
+    console.log(loginRef.current.value);
+    dispatch(storeLogin(loginRef.current.value))
   }
 
-  const isDecrementing = () => {
-    dispatch(decrement())
-  }
+  // const isStoringToken = () => {
+  //   dispatch(storeToken('jksahdas'))
+  // }
 
   return (
     <>
       <div className='home'>
-        <button onClick={isIncrementing}> Increment </button>
-        <div> {count} </div>
-        <button onClick={isDecrementing}> Decrement </button>
-        <input type="text" />
+        
+        <input ref={loginRef} type="text" />
+        <button onClick={isStoringLogin}> Valider </button>
+
       </div>
     </>
   )
