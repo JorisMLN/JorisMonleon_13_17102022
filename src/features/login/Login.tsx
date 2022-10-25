@@ -1,7 +1,10 @@
 import React, { LegacyRef, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
-import { storeLogin, storeToken} from '../reducer/reducers';
+import { 
+  storeLogin, 
+  // storeToken
+} from '../reducer/reducers';
 import Footer from '../../layout/footer/Footer';
 
 const Login : React.FC= () => {

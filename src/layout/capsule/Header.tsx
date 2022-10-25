@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/argentBankLogo.png';
 
 const Header : React.FC = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -34,15 +35,18 @@ const Header : React.FC = () => {
       {
       isLogged === true ?
       <div className='header'>
-        <button onClick={toHomeFrame}> Back Home </button>
-        <h1> Argent Bank </h1>
-        <button onClick={logOut}> logOut </button>
+        <img alt='lien vers la home page' onClick={toHomeFrame} src={logo}></img>
+        <div className='header__rightSide'>
+          <div className='link' > Profile </div>
+          <div className='link' onClick={logOut}> Log Out </div>
+        </div>
       </div>
       :
       <div className='header'>
-        <button onClick={toHomeFrame}> Back Home </button>
-        <h1> Argent Bank </h1>
-        <button onClick={toLoginFrame}> Login ? </button>
+        <img alt='lien vers la home page' onClick={toHomeFrame} src={logo}></img>
+        <div className='header__rightSide'>
+          <div className='link' onClick={toLoginFrame}> Login ? </div>
+        </div>
       </div>
       }
     </>

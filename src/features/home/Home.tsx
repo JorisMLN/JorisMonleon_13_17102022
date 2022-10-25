@@ -9,7 +9,7 @@ const Home : React.FC = () => {
     <>
       <div className='home'>
         <div className='banner'>
-          <img src={imageBanner} className='banner__image'></img>
+          <img alt='logo de la banque' src={imageBanner} className='banner__image'></img>
         </div>
         <Footer />
       </div>
