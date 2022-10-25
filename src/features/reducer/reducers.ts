@@ -1,18 +1,20 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 // Define a type for the slice state
-interface CounterState {
+interface AuthState {
   login: string
+  userId: string;
   token: string
 };
 
 // Define the initial state using that type
-const initialState: CounterState = {
+const initialState: AuthState = {
   login: '',
+  userId: '',
   token: ''
 } 
 
-const counterSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
@@ -30,10 +32,10 @@ const counterSlice = createSlice({
 });
 
 const store = configureStore({
-  reducer: counterSlice.reducer
+  reducer: authSlice.reducer
 })
 
 store.subscribe(() => console.log(store.getState()));
 
-export const { storeLogin, storeToken } = counterSlice.actions;
+export const { storeLogin, storeToken } = authSlice.actions;
 export default store;
