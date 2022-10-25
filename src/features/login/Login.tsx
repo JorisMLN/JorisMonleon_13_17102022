@@ -1,11 +1,13 @@
 import React, { LegacyRef, useRef } from 'react';
+import './login.scss';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { 
   storeLogin, 
   // storeToken
-} from '../reducer/reducers';
+} from '../reducer/authReducer';
 import Footer from '../../layout/footer/Footer';
+import { isLogin } from '../../api/requestsManager';
 
 const Login : React.FC= () => {
   const dispatch = useAppDispatch();
@@ -13,29 +15,39 @@ const Login : React.FC= () => {
 
   const userLogin = useAppSelector(state => state.login);
   const loginRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
+  const passwordRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   
-  const isStoringLogin = () => {
-    console.log(loginRef.current.value);
-    dispatch(storeLogin(loginRef.current.value))
+  const fetchLogin = async () => {
+    const userLogin = loginRef.current.value;
+    const userPassword = passwordRef.current.value;
+    
+    const fetchLoginResult = await isLogin(userLogin, userPassword)
+    console.log(fetchLoginResult)
 
+    dispatch(storeLogin(userLogin))
   }
 
   const toBoard = () => {
     navigate('/board');
   }
 
-  // const isStoringToken = () => {
+  // const isStoringToken = () => { 
   //   dispatch(storeToken('jksahdas'))
   // }
 
   return (
     <>
-      <div className='home'>
-        <p>{userLogin}</p>
-        <input ref={loginRef} type="text" />
-        <button onClick={isStoringLogin}> Valider </button>
+      <div className='login'>
+        <div className='login__main'>
+          <p>{userLogin}</p>
+          <input ref={loginRef} type="text" placeholder='login'/>
+          <input ref={passwordRef} type="text" placeholder='password'/>
+          -
+          <button onClick={fetchLogin}> Valider </button>
 
-        <button onClick={toBoard}> To Board </button>
+          <button onClick={toBoard}> To Board </button>
+        </div>
+      
         <Footer />
       </div>
     </>

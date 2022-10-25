@@ -23,10 +23,8 @@ const Header : React.FC = () => {
 
     if(actualPath === 'http://localhost:3000/board'){
       setIsLogged(true);
-      console.log('true')
     } else {
       setIsLogged(false);
-      console.log('false')
     }
   })
  
