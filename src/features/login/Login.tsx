@@ -39,17 +39,29 @@ const Login : React.FC= () => {
     <>
       <div className='login'>
         <div className='login__main'>
-          <p>{userLogin}</p>
-          <input ref={loginRef} type="text" placeholder='login'/>
-          <input ref={passwordRef} type="text" placeholder='password'/>
-          -
-          <button onClick={fetchLogin}> Valider </button>
+          <div>
+            .logo.
+            <h2>Sign In</h2>
+          </div>
 
-          <button onClick={toBoard}> To Board </button>
+          <div>
+            <legend>Username</legend>
+            <input ref={loginRef} type="text" placeholder='login'/>
+          </div>
+
+          <div>
+            <legend>Password</legend>
+            <input ref={passwordRef} type="text" placeholder='password'/>
+          </div>
+          
+          <div>
+            <button onClick={fetchLogin}> Valider </button>
+            <button onClick={toBoard}> To Board </button>
+          </div>
         </div>
-      
-        <Footer />
       </div>
+      
+      <Footer />
     </>
   )
 }
