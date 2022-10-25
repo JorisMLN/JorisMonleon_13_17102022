@@ -2,7 +2,7 @@
 import { REQUEST_SETTINGS } from '../services';
 const userToken: string | null = localStorage.getItem('userToken');
 
-// Login apps
+// Is loging the user
 export const isLogin = async (email: string, password: string) : Promise<any> => {
   const requestOptions : any = {
     method: 'POST',
@@ -28,7 +28,7 @@ export const isLogin = async (email: string, password: string) : Promise<any> =>
   }
 };
 
-// Signup apps
+// Is signing up a new user
 export const isSignup = async (email: string, password: string) : Promise<any> => {
   const requestOptions : any = {
     method: 'POST',
@@ -54,7 +54,7 @@ export const isSignup = async (email: string, password: string) : Promise<any> =
   }
 };
 
-// Signup apps
+// Is recovering the user profile
 export const isProfile = async (email: string, password: string) : Promise<any> => {
   const requestOptions : any = {
     method: 'POST',

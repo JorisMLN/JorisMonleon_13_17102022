@@ -7,7 +7,7 @@ interface AuthState {
   token: string
 };
 
-// Define the initial state using that type
+// Define the initial state of the this Reducer
 const initialState: AuthState = {
   login: '',
   userId: '',
@@ -19,14 +19,12 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     storeLogin: (state, action) => {
-      console.log(action)
       state.login = action.payload
-      console.log(state)
+      console.log(state, action)
     },
     storeToken: (state, action) => {
-      console.log(action)
       state.token = action.payload
-      console.log(state)
+      console.log(state, action)
     }
   }
 });

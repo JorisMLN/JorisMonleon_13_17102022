@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './styles/index.scss';
-import store from './features/reducer/reducers';
+import store from './features/reducer/authReducer';
 
 import LoginFrame from './layout/loginFrame/LoginFrame';
 import HomeFrame from './layout/homeFrame/HomeFrame';
