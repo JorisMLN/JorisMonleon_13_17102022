@@ -3,10 +3,17 @@
 // --- --- --- CAPSULE STYLE --- --- --- //
 
 .home{
-  background-color: rgb(112, 112, 168);
   height: 93vh;
 
-  // .banner{
-  //   background-image: ;
-  // }
+  .banner{
+    height: 700px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    &__image{
+      width: 100%;
+    }
+  }
 }

@@ -1,11 +1,18 @@
 import React from 'react';
-import imageBanner from '../../assets/icon-chat.png';
+import './home.scss';
+import imageBanner from '../../assets/bank-tree.jpeg';
+import Footer from '../../layout/footer/Footer';
 
 const Home : React.FC = () => {
 
   return (
     <>
-      <div> Home <div className='banner'>{imageBanner}</div></div>
+      <div className='home'>
+        <div className='banner'>
+          <img src={imageBanner} className='banner__image'></img>
+        </div>
+        <Footer />
+      </div>
     </>
   )
 }

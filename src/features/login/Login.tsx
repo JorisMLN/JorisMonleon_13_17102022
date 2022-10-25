@@ -2,6 +2,7 @@ import React, { LegacyRef, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { storeLogin, storeToken} from '../reducer/reducers';
+import Footer from '../../layout/footer/Footer';
 
 const Login : React.FC= () => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,7 @@ const Login : React.FC= () => {
         <button onClick={isStoringLogin}> Valider </button>
 
         <button onClick={toBoard}> To Board </button>
+        <Footer />
       </div>
     </>
   )

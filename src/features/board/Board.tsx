@@ -1,10 +1,14 @@
 import React from 'react';
+import Footer from '../../layout/footer/Footer';
 
 const Board : React.FC = () => {
 
   return (
     <>
-      <div> test </div>
+      <div>
+        <div> content </div>
+        <Footer />
+      </div>
     </>
   )
 }

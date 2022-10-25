@@ -1,0 +1,17 @@
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  border: 1px solid black;
+  height: 19vh;
+}
+
+.homeSize{
+  height: 19vh;
+}
+
+.loginAndBoardSize{
+  height: 9vh;
+}
