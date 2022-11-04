@@ -11,12 +11,11 @@ const Footer : React.FC = () => {
     if(actualPath === 'http://localhost:3000/'){
       setFooterSize('homeSize');
       console.log('homeSize')
-    }
-
-    if(actualPath === 'http://localhost:3000/login' || actualPath === 'http://localhost:3000/board'){
+    } else {
       setFooterSize('loginAndBoardSize');
       console.log('logAndBoardSize');
     }
+    
   }, [])
 
   return (
