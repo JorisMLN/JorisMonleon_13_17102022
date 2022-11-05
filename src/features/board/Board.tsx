@@ -1,23 +1,26 @@
-import React, { useRef } from 'react';
+import React, { RefObject, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './board.scss'
 import Footer from '../../layout/footer/Footer';
-// import Content from './Account';
 
 const Board : React.FC = () => {
-  const [openEdit, setOpenEdit] = React.useState(false);
+  const [openEdit, setOpenEdit] = React.useState<boolean>(false);
+
   const navigate = useNavigate();
 
   const firstnameRef : any = useRef();
-  const lastnameRef : any = useRef();
+  const lastnameRef : any = useRef(); 
 
   const isEditingName = () => {
     console.log('edit name !');
-    console.log(firstnameRef.current.value);
+    console.log(firstnameRef);
+    console.log(lastnameRef);
   }
 
-  const openView = () => {
+  const openView = (accountNumber : number) => {
+    console.log(accountNumber)
+    localStorage.setItem('accountNumber', JSON.stringify(accountNumber))
     navigate('/account');
   }
 
@@ -50,7 +53,7 @@ const Board : React.FC = () => {
           {
             <>
               content
-              <button onClick={() => openView()}> View transactions</button>
+              <button onClick={() => openView(0)}> View transactions</button>
               {/* <Content /> */}
             </>
           }
@@ -60,6 +63,7 @@ const Board : React.FC = () => {
           {
             <>
               content
+              <button onClick={() => openView(1)}> View transactions</button>
               {/* <Content /> */}
             </>
           }
@@ -69,6 +73,7 @@ const Board : React.FC = () => {
           {
             <>
               content
+              <button onClick={() => openView(2)}> View transactions</button>
               {/* <Content /> */}
             </>
           }
