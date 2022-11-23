@@ -1,4 +1,4 @@
-import React, { RefObject, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { storeFirstName, storeLastName} from '../reducer/authReducer';
@@ -24,12 +24,9 @@ const Board : React.FC = () => {
 
   const isEditingName = () => {
     console.log('edit name !');
-    console.log(firstNameRef.current.value);
-    console.log(lastNameRef.current.value);
 
     dispatch(storeFirstName(firstNameRef.current.value));
     dispatch(storeLastName(lastNameRef.current.value));
-
     setOpenEdit(false);
   }
 

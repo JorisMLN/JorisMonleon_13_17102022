@@ -13,7 +13,6 @@ const Login : React.FC= () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const userLogin = useAppSelector(state => state.login);
   const loginRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   const passwordRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   

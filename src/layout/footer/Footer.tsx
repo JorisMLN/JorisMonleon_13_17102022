@@ -6,14 +6,11 @@ const Footer : React.FC = () => {
 
   useEffect(() => {
     const actualPath = document.location.href;
-    console.log(actualPath)
 
     if(actualPath === 'http://localhost:3000/'){
       setFooterSize('homeSize');
-      console.log('homeSize')
     } else {
       setFooterSize('loginAndBoardSize');
-      console.log('logAndBoardSize');
     }
     
   }, [])
