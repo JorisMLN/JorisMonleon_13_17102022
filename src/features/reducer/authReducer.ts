@@ -3,15 +3,19 @@ import { createSlice, configureStore } from '@reduxjs/toolkit';
 // Define a type for the slice state
 interface AuthState {
   login: string
-  userId: string;
+  userId: string
   token: string
+  firstName: string
+  lastName: string
 };
 
 // Define the initial state of the this Reducer
 const initialState: AuthState = {
   login: '',
   userId: '',
-  token: ''
+  token: '',
+  firstName: 'Tonui',
+  lastName: 'asd;kljas'
 } 
 
 const authSlice = createSlice({
@@ -25,7 +29,15 @@ const authSlice = createSlice({
     storeToken: (state, action) => {
       state.token = action.payload
       console.log(state, action)
-    }
+    },
+    storeFirstName: (state, action) => {
+      state.firstName = action.payload
+      console.log(state, action)
+    },
+    storeLastName: (state, action) => {
+      state.lastName = action.payload
+      console.log(state, action)
+    },
   }
 });
 
@@ -35,5 +47,5 @@ const store = configureStore({
 
 store.subscribe(() => console.log(store.getState()));
 
-export const { storeLogin, storeToken } = authSlice.actions;
+export const { storeLogin, storeToken, storeFirstName, storeLastName } = authSlice.actions;
 export default store;
