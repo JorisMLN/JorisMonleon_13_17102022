@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { storeFirstName, storeLastName} from '../reducer/authReducer';
 
+import { AccountType } from './../../api/mocked';
+import { accountMocked } from './../../api/mocked';
+
 import './board.scss'
 import Footer from '../../layout/footer/Footer';
 
@@ -61,36 +64,18 @@ const Board : React.FC = () => {
           }
         </div>
 
-        <div className='board__content'>
-          {
-            <>
-              content
-              <button onClick={() => openView(0)}> View transactions</button>
-              {/* <Content /> */}
-            </>
-          }
-        </div>
-
-        <div className='board__content'>
-          {
-            <>
-              content
-              <button onClick={() => openView(1)}> View transactions</button>
-              {/* <Content /> */}
-            </>
-          }
-        </div>
-
-        <div className='board__content'>
-          {
-            <>
-              content
-              <button onClick={() => openView(2)}> View transactions</button>
-              {/* <Content /> */}
-            </>
-          }
-        </div>
-
+        {
+          accountMocked.map((account : AccountType, index) => {
+            return <div className='board__content' key={index}>
+              <div>
+                {account.name}
+                {account.balance}
+                <button onClick={() => openView(index)}> View transactions</button>
+              </div>
+            </div>
+          })
+        }
+      
       </div>
       <Footer />
     </>

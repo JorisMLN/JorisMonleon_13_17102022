@@ -1,9 +1,13 @@
 .account{
-  border: 1px solid red;
   height: 82vh;
-
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
+
+  &__line{
+    border: 1px solid blue;
+    width: 80%;
+    height: 30px;
+    margin: 3px;
+  }
 }
