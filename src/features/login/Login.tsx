@@ -7,7 +7,7 @@ import {
   // storeToken
 } from '../reducer/authReducer';
 import Footer from '../../layout/footer/Footer';
-import { isLogin } from '../../api/requestsManager';
+import { isLogin, testAxios } from '../../api/requestsManager';
 
 const Login : React.FC= () => {
   const dispatch = useAppDispatch();
@@ -17,11 +17,17 @@ const Login : React.FC= () => {
   const passwordRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   
   const fetchLogin = async () => {
+
+    
+
     const userLogin = loginRef.current.value;
     const userPassword = passwordRef.current.value;
+
+    const response = await testAxios(userLogin, userPassword);
+    console.log(response);
     
-    const fetchLoginResult = await isLogin(userLogin, userPassword)
-    console.log(fetchLoginResult)
+    // const fetchLoginResult = await isLogin(userLogin, userPassword)
+    // console.log(fetchLoginResult)
 
     dispatch(storeLogin(userLogin))
   }
