@@ -2,12 +2,9 @@ import React, { LegacyRef, useRef } from 'react';
 import './login.scss';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
-import { 
-  storeLogin, 
-  // storeToken
-} from '../reducer/authReducer';
+import { storeLogin, storeToken } from '../reducer/authReducer';
 import Footer from '../../layout/footer/Footer';
-import { isLogin, testAxios } from '../../api/requestsManager';
+import { isLogin } from '../../api/requestsManager';
 
 const Login : React.FC= () => {
   const dispatch = useAppDispatch();
@@ -17,28 +14,21 @@ const Login : React.FC= () => {
   const passwordRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   
   const fetchLogin = async () => {
-
-    
-
     const userLogin = loginRef.current.value;
     const userPassword = passwordRef.current.value;
 
-    const response = await testAxios(userLogin, userPassword);
+    const response = await isLogin(userLogin, userPassword);
     console.log(response);
-    
-    // const fetchLoginResult = await isLogin(userLogin, userPassword)
-    // console.log(fetchLoginResult)
 
-    dispatch(storeLogin(userLogin))
+    if(response.status === 200){
+      dispatch(storeLogin(userLogin));
+      dispatch(storeToken(response.body?.token));
+
+      navigate('/board');
+    } else {
+      console.log('400 nope !')
+    }
   }
-
-  const toBoard = () => {
-    navigate('/board');
-  }
-
-  // const isStoringToken = () => { 
-  //   dispatch(storeToken('jksahdas'))
-  // }
 
   return (
     <>
@@ -61,7 +51,6 @@ const Login : React.FC= () => {
           
           <div>
             <button onClick={fetchLogin}> Valider </button>
-            <button onClick={toBoard}> To Board </button>
           </div>
         </div>
       </div>

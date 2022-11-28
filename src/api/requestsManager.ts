@@ -21,44 +21,45 @@ interface LoginBodyResponse {
   token: string
 }
 
-export const testAxios = async (email: string, password: string) : Promise<LoginResponse> => {
+export const isLogin = async (email: string, password: string) : Promise<LoginResponse> => {
   return await axiosInstance
     .post('/user/login', {
       email: email,
       password: password
     })
     .then((response) => {
-    return response.data;
-  })
+      console.log(response.status);
+      return response.data;
+    }
+  )
 }
 
 
-
 // Is loging the user
-export const isLogin = async (email: string, password: string) : Promise<any> => {
-  const requestOptions : any = {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'x-auth': `${userToken}`
-    },
-    body: {
-      email: email,
-      password: password
-    }
-  }
+// export const isLogin = async (email: string, password: string) : Promise<any> => {
+//   const requestOptions : any = {
+//     method: 'POST',
+//     headers: {
+//       'Accept': 'application/json',
+//       'x-auth': `${userToken}`
+//     },
+//     body: {
+//       email: email,
+//       password: password
+//     }
+//   }
 
-  try {
-    const response : Response = await fetch(`${REQUEST_SETTINGS.login}`, requestOptions);
-    const jsonRes : any = await response.json();
+//   try {
+//     const response : Response = await fetch(`${REQUEST_SETTINGS.login}`, requestOptions);
+//     const jsonRes : any = await response.json();
 
-    console.log(jsonRes)
-    return jsonRes
+//     console.log(jsonRes)
+//     return jsonRes
 
-  } catch {
-    console.error('error server');
-  }
-};
+//   } catch {
+//     console.error('error server');
+//   }
+// };
 
 // Is signing up a new user
 export const isSignup = async (email: string, password: string) : Promise<any> => {
