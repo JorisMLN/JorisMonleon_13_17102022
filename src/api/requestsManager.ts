@@ -4,6 +4,8 @@ import axios from 'axios';
 
 
 const userToken: string | null = localStorage.getItem('userToken');
+// console.log(userToken);
+
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:3001/api/v1',
   headers: {
@@ -34,6 +36,39 @@ export const isLogin = async (email: string, password: string) : Promise<LoginRe
   )
 }
 
+export const UYHJFHgetProfile = async (token: string) : Promise<any> => {
+  // axiosInstance.defaults.headers.Authorization = token;
+  // console.log(axiosInstance.defaults.headers)
+
+  return await axiosInstance
+    .post('/user/profile')
+    .then((response) => {
+      console.log(response.data)
+      return response.data
+    }
+  )
+}
+
+export const getProfile = async (token: string) : Promise<any> => {
+  const requestOptions : any = {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Authorization': `${token}`
+    }
+  }
+
+  try {
+    const response : Response = await fetch(`${REQUEST_SETTINGS.profile}`, requestOptions);
+    const jsonRes : any = await response.json();
+
+    console.log(jsonRes)
+    return jsonRes
+
+  } catch {
+    console.error('error server');
+  }
+};
 
 // Is loging the user
 // export const isLogin = async (email: string, password: string) : Promise<any> => {
@@ -88,7 +123,7 @@ export const isSignup = async (email: string, password: string) : Promise<any> =
 };
 
 // Is recovering the user profile
-export const isProfile = async (email: string, password: string) : Promise<any> => {
+export const isProfixle = async (email: string, password: string) : Promise<any> => {
   const requestOptions : any = {
     method: 'POST',
     headers: {

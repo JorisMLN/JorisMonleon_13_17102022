@@ -5,6 +5,7 @@ import { storeFirstName, storeLastName} from '../reducer/authReducer';
 
 import { AccountType } from './../../api/mocked';
 import { accountMocked } from './../../api/mocked';
+import { getProfile } from '../../api/requestsManager';
 
 import './board.scss'
 import Footer from '../../layout/footer/Footer';
@@ -12,6 +13,7 @@ import Footer from '../../layout/footer/Footer';
 interface State {
   lastName: string
   firstName: string
+  token: string
 }
 
 const Board : React.FC = () => {
@@ -19,11 +21,19 @@ const Board : React.FC = () => {
   const [openEdit, setOpenEdit] = React.useState<boolean>(false);
   const reduxFirstName = useAppSelector((state: State) => state.firstName);
   const reduxLastName = useAppSelector((state: State) => state.lastName);
-
+  const reduxToken = useAppSelector((state: State) => state.token);
   const navigate = useNavigate();
 
   const firstNameRef : any = useRef();
   const lastNameRef : any = useRef(); 
+
+
+  const fetchProfile = async () => {
+    console.log('token ->', reduxToken)
+    const response = await getProfile(reduxToken);
+    console.log('response ->', response);
+  }
+  fetchProfile();
 
   const isEditingName = () => {
     console.log('edit name !');

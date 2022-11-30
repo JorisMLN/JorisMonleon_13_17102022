@@ -18,11 +18,14 @@ const Login : React.FC= () => {
     const userPassword = passwordRef.current.value;
 
     const response = await isLogin(userLogin, userPassword);
-    console.log(response);
 
     if(response.status === 200){
       dispatch(storeLogin(userLogin));
       dispatch(storeToken(response.body?.token));
+
+      if(response.body !== undefined){
+        localStorage.setItem('userToken', response.body?.token)
+      }
 
       navigate('/board');
     } else {
