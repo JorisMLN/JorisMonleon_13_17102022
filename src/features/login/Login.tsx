@@ -2,9 +2,9 @@ import React, { LegacyRef, useRef } from 'react';
 import './login.scss';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
-import { storeLogin, storeToken } from '../reducer/authReducer';
+import { storeToken } from '../reducer/authReducer';
 import Footer from '../../layout/footer/Footer';
-import { isLogin } from '../../api/requestsManager';
+import { login } from '../../api/requestsManager';
 
 const Login : React.FC= () => {
   const dispatch = useAppDispatch();
@@ -17,10 +17,10 @@ const Login : React.FC= () => {
     const userLogin = loginRef.current.value;
     const userPassword = passwordRef.current.value;
 
-    const response = await isLogin(userLogin, userPassword);
+    const response = await login(userLogin, userPassword);
+    console.log('Login Response ->', response)
 
     if(response.status === 200){
-      dispatch(storeLogin(userLogin));
       dispatch(storeToken(response.body?.token));
 
       if(response.body !== undefined){

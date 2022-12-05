@@ -15,7 +15,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeFrame />} />
@@ -24,7 +24,7 @@ root.render(
           <Route path="/account" element={<AccountFrame />} />
         </Routes>
       </BrowserRouter>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </Provider>
 );
 

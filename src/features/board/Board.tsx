@@ -5,7 +5,7 @@ import { storeFirstName, storeLastName} from '../reducer/authReducer';
 
 import { AccountType } from './../../api/mocked';
 import { accountMocked } from './../../api/mocked';
-import { getProfile } from '../../api/requestsManager';
+import { getProfile, updateProfile } from '../../api/requestsManager';
 
 import './board.scss'
 import Footer from '../../layout/footer/Footer';
@@ -21,25 +21,29 @@ const Board : React.FC = () => {
   const [openEdit, setOpenEdit] = React.useState<boolean>(false);
   const reduxFirstName = useAppSelector((state: State) => state.firstName);
   const reduxLastName = useAppSelector((state: State) => state.lastName);
-  const reduxToken = useAppSelector((state: State) => state.token);
   const navigate = useNavigate();
-
   const firstNameRef : any = useRef();
   const lastNameRef : any = useRef(); 
 
-
   const fetchProfile = async () => {
-    console.log('token ->', reduxToken)
-    const response = await getProfile(reduxToken);
-    console.log('response ->', response);
-  }
-  fetchProfile();
+    const response = await getProfile();
+    console.log('getProfile responsem ->', response.body);
 
+    dispatch(storeFirstName(response.body.firstName));
+    dispatch(storeLastName(response.body.lastName));
+  }
+
+  React.useEffect(() => {
+    fetchProfile();
+  }, [])
+  
   const isEditingName = () => {
     console.log('edit name !');
-
     dispatch(storeFirstName(firstNameRef.current.value));
     dispatch(storeLastName(lastNameRef.current.value));
+
+    updateProfile(firstNameRef.current.value, lastNameRef.current.value);
+
     setOpenEdit(false);
   }
 

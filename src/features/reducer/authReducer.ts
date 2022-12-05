@@ -1,4 +1,5 @@
 import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { axiosInstance } from '../../api/requestsManager';
 
 // Define a type for the slice state
 interface AuthState {
@@ -28,6 +29,7 @@ const authSlice = createSlice({
     },
     storeToken: (state, action) => {
       state.token = action.payload
+      axiosInstance.defaults.headers.Authorization = 'Bearer ' + action.payload;
       console.log(state, action)
     },
     storeFirstName: (state, action) => {
