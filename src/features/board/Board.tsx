@@ -27,22 +27,25 @@ const Board : React.FC = () => {
 
   const fetchProfile = async () => {
     const response = await getProfile();
-    console.log('getProfile responsem ->', response.body);
+    console.log('getProfile response ->', response);
 
-    dispatch(storeFirstName(response.body.firstName));
-    dispatch(storeLastName(response.body.lastName));
+    if(response.body !== undefined){
+      dispatch(storeFirstName(response.body.firstName));
+      dispatch(storeLastName(response.body.lastName));
+    }
+    
   }
 
   React.useEffect(() => {
     fetchProfile();
   }, [])
   
-  const isEditingName = () => {
-    console.log('edit name !');
+  const isEditingName = async () => {
     dispatch(storeFirstName(firstNameRef.current.value));
     dispatch(storeLastName(lastNameRef.current.value));
 
-    updateProfile(firstNameRef.current.value, lastNameRef.current.value);
+    const response = await updateProfile(firstNameRef.current.value, lastNameRef.current.value);
+    console.log('updateProfile response ->', response);
 
     setOpenEdit(false);
   }

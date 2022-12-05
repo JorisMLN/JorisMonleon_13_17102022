@@ -18,7 +18,7 @@ const Login : React.FC= () => {
     const userPassword = passwordRef.current.value;
 
     const response = await login(userLogin, userPassword);
-    console.log('Login Response ->', response)
+    console.log('Login Response ->', response);
 
     if(response.status === 200){
       dispatch(storeToken(response.body?.token));

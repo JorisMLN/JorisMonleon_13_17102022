@@ -13,17 +13,17 @@ export const axiosInstance = axios.create({
   }
 })
 
+
+// --- --- --- --- --- --- --- --- L O G I N --- --- --- --- --- --- --- --- //
 interface LoginResponse {
   status: number
   message: string
   body?: LoginBodyResponse
 }
-
 interface LoginBodyResponse {
   token: string
 }
 
-// login
 export const login = async (email: string, password: string) : Promise<LoginResponse> => {
   return await axiosInstance
     .post('/user/login', {
@@ -37,8 +37,22 @@ export const login = async (email: string, password: string) : Promise<LoginResp
   )
 }
 
-//getProfile
-export const getProfile = async () : Promise<any> => {
+// --- --- --- --- --- --- --- --- G E T P R O F I L E --- --- --- --- --- --- --- --- //
+interface GetProfileResponse {
+  status: number
+  message: string
+  body?: GetProfileBodyResponse
+}
+interface GetProfileBodyResponse {
+  createdAt: string
+  email: string
+  firstName: string
+  id: string
+  lastName: string
+  updatedAt: string
+}
+
+export const getProfile = async () : Promise<GetProfileResponse> => {
   return await axiosInstance
     .post('/user/profile')
     .then((response) => {
@@ -48,8 +62,22 @@ export const getProfile = async () : Promise<any> => {
   )
 }
 
-// updateProfile
-export const updateProfile = async (firstName: string, lastName: string) : Promise<any> => {
+// --- --- --- --- --- --- --- U P D A T E P R O F I L E --- --- --- --- --- --- --- --- //
+interface UpdateResponse {
+  status: number
+  message: string
+  body?: UpdateBodyResponse
+}
+interface UpdateBodyResponse {
+  createdAt: string
+  email: string
+  firstName: string
+  id: string
+  lastName: string
+  updatedAt: string
+}
+
+export const updateProfile = async (firstName: string, lastName: string) : Promise<UpdateResponse> => {
   return await axiosInstance
     .put('/user/profile', {
       firstName: firstName,
