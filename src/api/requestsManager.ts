@@ -10,7 +10,7 @@ export const axiosInstance = axios.create({
 
 
 // --- --- --- --- --- --- --- --- L O G I N --- --- --- --- --- --- --- --- //
-interface LoginResponse {
+export interface LoginResponse {
   status: number
   message: string
   body?: LoginBodyResponse
@@ -33,7 +33,7 @@ export const login = async (email: string, password: string) : Promise<LoginResp
 }
 
 // --- --- --- --- --- --- --- --- G E T P R O F I L E --- --- --- --- --- --- --- --- //
-interface GetProfileResponse {
+export interface GetProfileResponse {
   status: number
   message: string
   body?: GetProfileBodyResponse
@@ -58,7 +58,7 @@ export const getProfile = async () : Promise<GetProfileResponse> => {
 }
 
 // --- --- --- --- --- --- --- U P D A T E P R O F I L E --- --- --- --- --- --- --- --- //
-interface UpdateResponse {
+export interface UpdateResponse {
   status: number
   message: string
   body?: UpdateBodyResponse
@@ -84,5 +84,3 @@ export const updateProfile = async (firstName: string, lastName: string) : Promi
     }
   )
 };
-
-

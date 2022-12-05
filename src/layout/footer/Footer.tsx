@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './footer.scss'
 
 const Footer : React.FC = () => {
-  const [footerSize, setFooterSize] = useState('homeSize')
+  const [footerSize, setFooterSize] = useState<string>('homeSize')
 
   useEffect(() => {
-    const actualPath = document.location.href;
+    const actualPath : string = document.location.href;
 
     if(actualPath === 'http://localhost:3000/'){
       setFooterSize('homeSize');

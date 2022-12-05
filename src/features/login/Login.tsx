@@ -1,23 +1,23 @@
 import React, { LegacyRef, useRef } from 'react';
 import './login.scss';
 import { useNavigate } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../reducer/hook';
+import { useAppDispatch } from '../reducer/hook';
 import { storeToken } from '../reducer/authReducer';
 import Footer from '../../layout/footer/Footer';
 import { login } from '../../api/requestsManager';
+import { LoginResponse } from '../../api/requestsManager';
 
-const Login : React.FC= () => {
+const Login : React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
   const loginRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   const passwordRef : LegacyRef<HTMLInputElement> | any | undefined = useRef();
   
-  const fetchLogin = async () => {
-    const userLogin = loginRef.current.value;
-    const userPassword = passwordRef.current.value;
+  const fetchLogin = async () : Promise<void> => {
+    const userLogin : string = loginRef.current.value;
+    const userPassword : string = passwordRef.current.value;
 
-    const response = await login(userLogin, userPassword);
+    const response : LoginResponse = await login(userLogin, userPassword);
     console.log('Login Response ->', response);
 
     if(response.status === 200){

@@ -1,8 +1,7 @@
 import React from 'react';
 import './account.scss';
-import { useNavigate } from 'react-router-dom';
 import Footer from '../../layout/footer/Footer';
-
+import { useNavigate } from 'react-router-dom';
 import { DetailsType } from './../../api/mocked';
 import { AccountType } from './../../api/mocked';
 import { accountMocked } from './../../api/mocked';
@@ -12,9 +11,7 @@ const Account : React.FC = () => {
   const accountNumber: any = localStorage.getItem('accountNumber');
   const accountContent : AccountType = accountMocked[accountNumber];
 
-  console.log(accountContent)
-
-  const backToBoard = () => {
+  const backToBoard = () : void => {
     navigate('/board');
   }
   

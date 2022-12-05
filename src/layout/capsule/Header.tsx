@@ -1,25 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/argentBankLogo.png';
+import { clearStore } from '../../features/reducer/authReducer';
+import { useAppDispatch } from '../../features/reducer/hook';
 
 const Header : React.FC = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
-  const toLoginFrame = () => {
+  const toLoginFrame = () : void => {
     navigate('/login');
   }
 
-  const toHomeFrame = () => {
+  const toHomeFrame = () : void => {
     navigate('/');
   }
 
-  const logOut = () => {
+  const logOut = () : void => {
+    localStorage.clear();
+    dispatch(clearStore(''));
     navigate('/');
   }
 
   useEffect(() => {
-    const actualPath = document.location.href;
+    const actualPath : string = document.location.href;
 
     if(actualPath === 'http://localhost:3000/board'){
       setIsLogged(true);

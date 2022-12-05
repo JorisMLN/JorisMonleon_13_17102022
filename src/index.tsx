@@ -15,16 +15,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <Provider store={store}>
-    {/* <React.StrictMode> */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomeFrame />} />
-          <Route path="/login" element={<LoginFrame />} />
-          <Route path="/board" element={<BoardFrame />} />
-          <Route path="/account" element={<AccountFrame />} />
-        </Routes>
-      </BrowserRouter>
-    {/* </React.StrictMode> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeFrame />} />
+        <Route path="/login" element={<LoginFrame />} />
+        <Route path="/board" element={<BoardFrame />} />
+        <Route path="/account" element={<AccountFrame />} />
+      </Routes>
+    </BrowserRouter>
   </Provider>
 );
 

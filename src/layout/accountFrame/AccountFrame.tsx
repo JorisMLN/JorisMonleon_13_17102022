@@ -1,5 +1,4 @@
 import React from 'react';
-import Board from "../../features/board/Board";
 import Capsule from '../capsule/Capsule';
 import Account from '../../features/board/Account';
 

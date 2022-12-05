@@ -2,55 +2,49 @@ import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { storeFirstName, storeLastName} from '../reducer/authReducer';
-
 import { AccountType } from './../../api/mocked';
 import { accountMocked } from './../../api/mocked';
-import { getProfile, updateProfile } from '../../api/requestsManager';
+import { AuthState } from '../reducer/authReducer';
+import { getProfile, GetProfileResponse, updateProfile, UpdateResponse } from '../../api/requestsManager';
 
 import './board.scss'
 import Footer from '../../layout/footer/Footer';
 
-interface State {
-  lastName: string
-  firstName: string
-  token: string
-}
 
 const Board : React.FC = () => {
   const dispatch = useAppDispatch();
-  const [openEdit, setOpenEdit] = React.useState<boolean>(false);
-  const reduxFirstName = useAppSelector((state: State) => state.firstName);
-  const reduxLastName = useAppSelector((state: State) => state.lastName);
   const navigate = useNavigate();
+  const [openEdit, setOpenEdit] = React.useState<boolean>(false);
+  const reduxFirstName = useAppSelector((state: AuthState) => state.firstName);
+  const reduxLastName = useAppSelector((state: AuthState) => state.lastName);
   const firstNameRef : any = useRef();
   const lastNameRef : any = useRef(); 
 
-  const fetchProfile = async () => {
-    const response = await getProfile();
+  const fetchProfile = async () : Promise<void> => {
+    const response : GetProfileResponse = await getProfile();
     console.log('getProfile response ->', response);
 
     if(response.body !== undefined){
       dispatch(storeFirstName(response.body.firstName));
       dispatch(storeLastName(response.body.lastName));
     }
-    
   }
 
   React.useEffect(() => {
     fetchProfile();
   }, [])
   
-  const isEditingName = async () => {
+  const isEditingName = async () : Promise<void> => {
     dispatch(storeFirstName(firstNameRef.current.value));
     dispatch(storeLastName(lastNameRef.current.value));
 
-    const response = await updateProfile(firstNameRef.current.value, lastNameRef.current.value);
+    const response : UpdateResponse = await updateProfile(firstNameRef.current.value, lastNameRef.current.value);
     console.log('updateProfile response ->', response);
 
     setOpenEdit(false);
   }
 
-  const openView = (accountNumber : number) => {
+  const openView = (accountNumber : number) : void => {
     console.log(accountNumber)
     localStorage.setItem('accountNumber', JSON.stringify(accountNumber))
     navigate('/account');
@@ -82,7 +76,7 @@ const Board : React.FC = () => {
         </div>
 
         {
-          accountMocked.map((account : AccountType, index) => {
+          accountMocked.map((account : AccountType, index : number) => {
             return <div className='board__content' key={index}>
               <div>
                 {account.name}
