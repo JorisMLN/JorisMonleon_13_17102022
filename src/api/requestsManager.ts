@@ -1,10 +1,5 @@
 // --- --- --- --- R E Q U E S T --- M A N A G E R --- --- --- --- //
-import { REQUEST_SETTINGS } from '../services';
 import axios from 'axios';
-
-
-const userToken: string | null = localStorage.getItem('userToken');
-// console.log(userToken);
 
 export const axiosInstance = axios.create({
   baseURL: 'http://localhost:3001/api/v1',
