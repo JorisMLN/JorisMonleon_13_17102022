@@ -56,20 +56,21 @@ const Board : React.FC = () => {
         <div className='board__name'>
           {
             openEdit === true ?
-            <div>
-              <div>Welcome Back</div>
-              <div>
+            <div className='board__name--open'>
+              <div className='title'>Welcome Back</div>
+              <div className='inputs'>
                 <input ref={firstNameRef}></input>
                 <input ref={lastNameRef}></input>
               </div>
-              <div>
+              <div className='buttons'>
                 <button onClick={() => isEditingName()}>Edit</button>
                 <button onClick={() => setOpenEdit(false)}>Cancel</button>
               </div>
             </div>
             :
-            <div>
-              <div>Welcome Back {reduxFirstName} {reduxLastName}</div>
+            <div className='board__name--close'>
+              <h1>Welcome Back</h1>
+              <div className='reduxNameContent'>{reduxFirstName} {reduxLastName}!</div>
               <button onClick={() => setOpenEdit(true)}>Edit name</button>
             </div>
           }
@@ -78,11 +79,18 @@ const Board : React.FC = () => {
         {
           accountMocked.map((account : AccountType, index : number) => {
             return <div className='board__content' key={index}>
-              <div>
+              <div className='board__content--left'>
+                <div>
                 {account.name}
-                {account.balance}
-                <button onClick={() => openView(index)}> View transactions</button>
+                </div>
+                <div className='balance'>
+                ${account.balance}
+                </div>
+                <div>
+                {account.description}
+                </div>
               </div>
+              <button onClick={() => openView(index)}> View transactions</button>
             </div>
           })
         }
