@@ -6,6 +6,8 @@ import { storeToken } from '../reducer/authReducer';
 import Footer from '../../layout/footer/Footer';
 import { login } from '../../api/requestsManager';
 import { LoginResponse } from '../../api/requestsManager';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Login : React.FC = () => {
   const dispatch = useAppDispatch();
@@ -37,19 +39,19 @@ const Login : React.FC = () => {
     <>
       <div className='login'>
         <div className='login__main'>
-          <div>
-            .logo.
+          <div className='login__main--top'>
+            <FontAwesomeIcon icon={faUserCircle} />
             <h2>Sign In</h2>
           </div>
 
-          <div>
+          <div className='input'>
             <legend>Username</legend>
-            <input ref={loginRef} type="text" placeholder='login'/>
+            <input ref={loginRef} type="text"/>
           </div>
 
-          <div>
+          <div  className='input'>
             <legend>Password</legend>
-            <input ref={passwordRef} type="text" placeholder='password'/>
+            <input ref={passwordRef} type="text"/>
           </div>
           
           <button onClick={fetchLogin}> Sign In </button>
