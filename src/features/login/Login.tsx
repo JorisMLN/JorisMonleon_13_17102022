@@ -52,9 +52,7 @@ const Login : React.FC = () => {
             <input ref={passwordRef} type="text" placeholder='password'/>
           </div>
           
-          <div>
-            <button onClick={fetchLogin}> Valider </button>
-          </div>
+          <button onClick={fetchLogin}> Sign In </button>
         </div>
       </div>
       
