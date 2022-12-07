@@ -28,7 +28,7 @@ export const accountMocked : Array<AccountType> = [
         balance: 2082.79,
         transactionType: 'Electronic',
         category: 'Food',
-        notes: '',
+        notes: 'test1',
       },
       {
         date: 'June 20th, 2020',
@@ -37,7 +37,7 @@ export const accountMocked : Array<AccountType> = [
         balance: 2082.79,
         transactionType: 'Electronic',
         category: 'Food',
-        notes: '',
+        notes: 'test2',
       },
       {
         date: 'June 20th, 2020',
@@ -46,7 +46,7 @@ export const accountMocked : Array<AccountType> = [
         balance: 2082.79,
         transactionType: 'Electronic',
         category: 'Food',
-        notes: '',
+        notes: 'test3',
       },
     ]
   },

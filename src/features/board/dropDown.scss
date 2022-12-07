@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+
+.dropdown{
+  border: 1px solid $backgroundLogin;
+  background-color: gray;
+  border-radius: 6px;
+  width: 80%;
+  min-height: 60px;
+  margin: 3px;
+  font-size: 20px;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &__head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+  }
+
+  &__body{
+    border: 1px solid red;
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    padding-left: 50px;
+  }
+
+  .hiddenDrop{
+    display: none;
+  }
+  
+  .visibleDrop{
+    display: flex;
+  }
+}

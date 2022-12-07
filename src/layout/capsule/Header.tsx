@@ -6,6 +6,7 @@ import { useAppDispatch } from '../../features/reducer/hook';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
+
 const Header : React.FC = () => {
   const [isLogged, setIsLogged] = useState<boolean>(false);
   const navigate = useNavigate();
@@ -19,6 +20,10 @@ const Header : React.FC = () => {
     navigate('/');
   }
 
+  const toBoardFrame = () : void => {
+    navigate('/board');
+  }
+
   const logOut = () : void => {
     localStorage.clear();
     dispatch(clearStore(''));
@@ -28,7 +33,7 @@ const Header : React.FC = () => {
   useEffect(() => {
     const actualPath : string = document.location.href;
 
-    if(actualPath === 'http://localhost:3000/board'){
+    if(actualPath === 'http://localhost:3000/board' || actualPath === 'http://localhost:3000/account'){
       setIsLogged(true);
     } else {
       setIsLogged(false);
@@ -42,7 +47,7 @@ const Header : React.FC = () => {
       <div className='header'>
         <img alt='lien vers la home page' onClick={toHomeFrame} src={logo}></img>
         <div className='header__rightSide'>
-          <div className='link' > Profile </div>
+          <div className='link' onClick={toBoardFrame}> Profile </div>
           <div className='link' onClick={logOut}> Log Out </div>
         </div>
       </div>
