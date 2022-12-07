@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3001/api/v1',
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Accept': 'application/json'
   }
