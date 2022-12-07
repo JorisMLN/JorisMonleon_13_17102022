@@ -20,8 +20,7 @@ const Account : React.FC = () => {
         </div>
         <div className='account__body'>
           {accountContent.details.map((line: DetailsType, index: number) => {
-            console.log('acount index', index)
-            return <DropDown content={line} domIndex={index}/>
+            return <DropDown content={line} domIndex={index} key={index}/>
           })}
         </div>
       </div>

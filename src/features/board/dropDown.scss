@@ -2,7 +2,7 @@
 
 .dropdown{
   border: 1px solid $backgroundLogin;
-  background-color: gray;
+  background-color: rgb(220, 220, 220);
   border-radius: 6px;
   width: 80%;
   min-height: 60px;
@@ -21,13 +21,10 @@
   }
 
   &__body{
-    border: 1px solid red;
     height: 120px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
     padding-left: 50px;
   }
 

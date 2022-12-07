@@ -26,7 +26,6 @@ export const login = async (email: string, password: string) : Promise<LoginResp
       password: password
     })
     .then((response) => {
-      console.log(response.status);
       return response.data;
     }
   )
@@ -51,7 +50,6 @@ export const getProfile = async () : Promise<GetProfileResponse> => {
   return await axiosInstance
     .post('/user/profile')
     .then((response) => {
-      console.log(response.data)
       return response.data
     }
   )
@@ -79,7 +77,6 @@ export const updateProfile = async (firstName: string, lastName: string) : Promi
       lastName: lastName
     })
     .then((response) => {
-      console.log(response.data)
       return response.data
     }
   )

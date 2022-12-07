@@ -7,20 +7,17 @@ import arrowUp from '../../assets/arrowUp.png';
 
 const DropDown = ({content, domIndex} : any) => {
   const [arrowIcon, setArrowIcon] = useState(false);
-  console.log(content, domIndex, arrowIcon)
 
   const handleVisible = (domIndex: any) => {
     const content : HTMLElement | null = document.getElementById(`domIndex${domIndex}`);
 
     if (content !== null && content.classList.contains('hiddenDrop')){
       content.classList.replace('hiddenDrop', 'visibleDrop');
-      console.log('test open')
       return setArrowIcon(true);
     }
 
     if (content !== null && content.classList.contains('visibleDrop')){
       content.classList.replace('visibleDrop', 'hiddenDrop');
-      console.log('test close')
       return setArrowIcon(false);
     }
   }

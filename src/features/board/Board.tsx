@@ -39,13 +39,12 @@ const Board : React.FC = () => {
     dispatch(storeLastName(lastNameRef.current.value));
 
     const response : UpdateResponse = await updateProfile(firstNameRef.current.value, lastNameRef.current.value);
-    console.log('updateProfile response ->', response);
-
+    console.log('Update Response ->', response);
+    
     setOpenEdit(false);
   }
 
   const openView = (accountNumber : number) : void => {
-    console.log(accountNumber)
     localStorage.setItem('accountNumber', JSON.stringify(accountNumber))
     navigate('/account');
   }
