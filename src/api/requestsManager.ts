@@ -1,4 +1,4 @@
-// --- --- --- --- R E Q U E S T --- M A N A G E R --- --- --- --- //
+// --- --- --- --- R E Q U E S T _ M A N A G E R --- --- --- --- //
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
@@ -31,7 +31,7 @@ export const login = async (email: string, password: string) : Promise<LoginResp
   )
 }
 
-// --- --- --- --- --- --- --- --- G E T P R O F I L E --- --- --- --- --- --- --- --- //
+// --- --- --- --- --- --- --- --- G E T _ P R O F I L E --- --- --- --- --- --- --- --- //
 export interface GetProfileResponse {
   status: number
   message: string
@@ -55,7 +55,7 @@ export const getProfile = async () : Promise<GetProfileResponse> => {
   )
 }
 
-// --- --- --- --- --- --- --- U P D A T E P R O F I L E --- --- --- --- --- --- --- --- //
+// --- --- --- --- --- --- --- U P D A T E _ P R O F I L E --- --- --- --- --- --- --- --- //
 export interface UpdateResponse {
   status: number
   message: string
