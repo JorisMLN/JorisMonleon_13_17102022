@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { storeFirstName, storeLastName} from '../reducer/authReducer';
 import { AccountType } from './../../api/mocked';
-import { accountMocked } from './../../api/mocked';
+// import { accountMocked } from './../../api/mocked';
+import { getAccounts } from '../../api/requestsManager';
 import { AuthState } from '../reducer/authReducer';
 import { getProfile, GetProfileResponse, updateProfile, UpdateResponse } from '../../api/requestsManager';
 
@@ -15,10 +16,19 @@ const Board : React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [openEdit, setOpenEdit] = React.useState<boolean>(false);
+  const [accounts, setAccounts] = React.useState<Array<AccountType>>([]);
   const reduxFirstName = useAppSelector((state: AuthState) => state.firstName);
   const reduxLastName = useAppSelector((state: AuthState) => state.lastName);
   const firstNameRef : any = useRef();
-  const lastNameRef : any = useRef(); 
+  const lastNameRef : any = useRef();
+
+  const fetchAccounts = async () => {
+    const accountMocked = await getAccounts();
+    setAccounts(accountMocked)
+  }
+  fetchAccounts();
+
+  
 
   const fetchProfile = async () : Promise<void> => {
     const response : GetProfileResponse = await getProfile();
@@ -44,8 +54,8 @@ const Board : React.FC = () => {
     setOpenEdit(false);
   }
 
-  const openView = (accountNumber : number) : void => {
-    localStorage.setItem('accountNumber', JSON.stringify(accountNumber))
+  const openView = (accountNumber : string) : void => {
+    localStorage.setItem('accountId', JSON.stringify(accountNumber))
     navigate('/account');
   }
 
@@ -76,7 +86,7 @@ const Board : React.FC = () => {
         </div>
 
         {
-          accountMocked.map((account : AccountType, index : number) => {
+          accounts.map((account : AccountType, index : number) => {
             return <div className='board__content' key={index}>
               <div className='board__content--left'>
                 <div>
@@ -89,11 +99,10 @@ const Board : React.FC = () => {
                 {account.description}
                 </div>
               </div>
-              <button onClick={() => openView(index)}> View transactions</button>
+              <button onClick={() => openView(account.id)}> View transactions</button>
             </div>
           })
         }
-      
       </div>
       <Footer />
     </>

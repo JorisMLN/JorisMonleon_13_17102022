@@ -5,26 +5,39 @@ import DropDown from './DropDown';
 import { DetailsType } from './../../api/mocked';
 import { AccountType } from './../../api/mocked';
 import { accountMocked } from './../../api/mocked';
+import { getTransactions } from '../../api/requestsManager';
 
 const Account : React.FC = () => {
-  const accountNumber: any = localStorage.getItem('accountNumber');
-  const accountContent : AccountType = accountMocked[accountNumber];
+  const [accountSelected, setAccountSelected] = React.useState<AccountType | null>()
+  const accountId: string | null = localStorage.getItem('accountId');
+
+  const fetchTransactions = async () => {
+    const content : AccountType | null | undefined= await getTransactions(accountId);
+    setAccountSelected(content)
+  }
+  fetchTransactions();
 
   return (
     <>
-      <div className='account'>
-        <div className='account__head'>
-          <h2>{accountContent.name}</h2>
-          <div className='account__head--balance'>${accountContent.balance}</div>
-          <div className='account__head--description'>${accountContent.description}</div>
+      {accountSelected != null || accountSelected != undefined ?
+      <>
+        <div className='account'>
+          <div className='account__head'>
+            <h2>{accountSelected.name}</h2>
+            <div className='account__head--balance'>${accountSelected.balance}</div>
+            <div className='account__head--description'>${accountSelected.description}</div>
+          </div>
+          <div className='account__body'>
+            {accountSelected.details.map((line: DetailsType, index: number) => {
+              return <DropDown content={line} domIndex={index} key={index}/>
+            })}
+          </div>
         </div>
-        <div className='account__body'>
-          {accountContent.details.map((line: DetailsType, index: number) => {
-            return <DropDown content={line} domIndex={index} key={index}/>
-          })}
-        </div>
-      </div>
-      <Footer />
+        <Footer />
+      </>
+      :
+      null}
+      
     </>
     
   )

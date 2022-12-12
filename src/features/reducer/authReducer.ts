@@ -17,7 +17,7 @@ const initialState: AuthState = {
   token: '',
   firstName: '',
   lastName: ''
-} 
+}
 
 const authSlice = createSlice({
   name: 'auth',

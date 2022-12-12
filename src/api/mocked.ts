@@ -1,6 +1,6 @@
 
 export interface AccountType{
-  _id: string
+  id: string
   name: string
   balance: number
   description: string
@@ -18,7 +18,7 @@ export interface DetailsType {
 
 export const accountMocked : Array<AccountType> = [
   {
-    _id: 'acc1',
+    id: 'acc1',
     name: 'Argent Bank Checking',
     balance: 2082.79,
     description: 'Available Balance',
@@ -53,7 +53,7 @@ export const accountMocked : Array<AccountType> = [
     ]
   },
   {
-    _id: 'acc2',
+    id: 'acc2',
     name: 'Argent Bank Saving',
     balance: 10928.42,
     description: 'Available Balance',
@@ -88,7 +88,7 @@ export const accountMocked : Array<AccountType> = [
     ]
   },
   {
-    _id: 'acc3',
+    id: 'acc3',
     name: 'Argent Bank Credit Card',
     balance: 184.30,
     description: 'Current Balance',

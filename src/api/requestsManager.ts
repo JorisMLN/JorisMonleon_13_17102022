@@ -1,5 +1,6 @@
 // --- --- --- --- R E Q U E S T _ M A N A G E R --- --- --- --- //
 import axios from 'axios';
+import { accountMocked, AccountType, DetailsType } from './mocked';
 
 export const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -81,3 +82,23 @@ export const updateProfile = async (firstName: string, lastName: string) : Promi
     }
   )
 };
+
+// --- --- --- --- --- --- --- G E T _ A C C O U N T S --- --- --- --- --- --- --- --- //
+
+export const getAccounts = async () : Promise<Array<AccountType>> => {
+  console.log(accountMocked)
+  return accountMocked;
+};
+
+// --- --- --- --- --- --- --- G E T _ T R A N S A C T I O N S --- --- --- --- --- --- --- --- //
+
+export const getTransactions = async (id : string | null) : Promise<AccountType | null | undefined> => {
+  let content;
+  accountMocked.map((account) => {
+    if(JSON.stringify(account.id) === id){
+      content = account
+    }
+  })
+
+  return content
+}
