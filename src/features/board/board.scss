@@ -111,3 +111,20 @@
     }
   }
 }
+
+// tablet responsiv
+@media screen and (max-width: 1024px) {
+  .board{
+    height: 95vh;
+    overflow: hidden;
+
+    &__content{
+      height: 180px;
+
+      button{
+        width: 35%;
+        height: 70px;
+      }
+    }
+  }
+}

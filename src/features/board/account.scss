@@ -41,3 +41,15 @@
     overflow-y: auto;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .account{
+    height: 95vh;
+    overflow: hidden;
+
+    &__body{
+      height: 76%;
+      padding-top: 10px;
+    }
+  }
+}

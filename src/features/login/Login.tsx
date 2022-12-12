@@ -51,7 +51,7 @@ const Login : React.FC = () => {
 
           <div  className='input'>
             <legend>Password</legend>
-            <input ref={passwordRef} type="text"/>
+            <input ref={passwordRef} type="password"/>
           </div>
           
           <button onClick={fetchLogin}> Sign In </button>
