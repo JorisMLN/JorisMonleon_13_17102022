@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../reducer/hook';
 import { storeFirstName, storeLastName} from '../reducer/authReducer';
 import { AccountType } from './../../api/mocked';
-// import { accountMocked } from './../../api/mocked';
 import { getAccounts } from '../../api/requestsManager';
 import { AuthState } from '../reducer/authReducer';
 import { getProfile, GetProfileResponse, updateProfile, UpdateResponse } from '../../api/requestsManager';
@@ -26,11 +25,9 @@ const Board : React.FC = () => {
     const accountMocked = await getAccounts();
     setAccounts(accountMocked)
   }
-  fetchAccounts();
-
-  
 
   const fetchProfile = async () : Promise<void> => {
+    console.log('test')
     const response : GetProfileResponse = await getProfile();
     console.log('getProfile response ->', response);
 
@@ -41,6 +38,7 @@ const Board : React.FC = () => {
   }
 
   React.useEffect(() => {
+    fetchAccounts();
     fetchProfile();
   }, [])
   

@@ -83,6 +83,10 @@ export const updateProfile = async (firstName: string, lastName: string) : Promi
   )
 };
 
+
+
+
+
 // --- --- --- --- --- --- --- G E T _ A C C O U N T S --- --- --- --- --- --- --- --- //
 
 export const getAccounts = async () : Promise<Array<AccountType>> => {

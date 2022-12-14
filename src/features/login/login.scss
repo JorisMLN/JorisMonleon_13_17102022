@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .login{
-  height: 82vh;
+  height: 86vh;
   background-color: $backgroundLogin;
   display: flex;
   justify-content: center;
@@ -34,8 +34,12 @@
     }
   }
 
+  .remember{
+    width: 80%;
+  }
+
   button{
-    width: 70%;
+    width: 80%;
     height: 38px;
     border-radius: 0;
     background-color: #00bc77;

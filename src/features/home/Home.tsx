@@ -15,10 +15,10 @@ const Home : React.FC = () => {
         <div className='banner'>
           <img alt='logo de la banque' src={imageBanner} className='banner__image'></img>
           <div className='heroContent'>
-            <p>No fees.</p>
-            <p>No minimum deposit.</p>
-            <p>High interest rates.</p>
-            <p>Open a savings account with Argent Bank Today!</p>
+            <p className='heroContent--bold'>No fees.</p>
+            <p className='heroContent--bold'>No minimum deposit.</p>
+            <p className='heroContent--bold'>High interest rates.</p>
+            <p className='heroContent--lite'>Open a savings account with Argent Bank Today!</p>
           </div>
         </div>
         <div className='homeBody'>

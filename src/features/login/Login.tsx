@@ -46,12 +46,17 @@ const Login : React.FC = () => {
 
           <div className='input'>
             <legend>Username</legend>
-            <input ref={loginRef} type="text"/>
+            <input ref={loginRef} type="text" autoFocus/>
           </div>
 
           <div  className='input'>
             <legend>Password</legend>
             <input ref={passwordRef} type="password"/>
+          </div>
+
+          <div className='remember'>
+            <input type="checkbox" />
+            <label>Remember Me</label>
           </div>
           
           <button onClick={fetchLogin}> Sign In </button>

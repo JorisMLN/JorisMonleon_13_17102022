@@ -48,6 +48,7 @@ const Header : React.FC = () => {
         <img alt='lien vers la home page' onClick={toHomeFrame} src={logo}></img>
         <div className='header__rightSide'>
           <div className='link' onClick={toBoardFrame}> Profile </div>
+          <FontAwesomeIcon icon={faUserCircle} />
           <div className='link' onClick={logOut}> Log Out </div>
         </div>
       </div>
