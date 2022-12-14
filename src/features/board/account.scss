@@ -31,7 +31,7 @@
   }
 
   &__body{
-    background-color: white;
+    background-color: $backgroundLogin;
     width: 90%;
     height: 64vh;
     padding-top: 50px;
@@ -39,6 +39,33 @@
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+
+    &--legend{
+      display: flex;
+      justify-content: flex-end;
+      width: 95%;
+
+      .date{
+        width: 22%;
+      }
+
+      .desc{
+        width: 28%;
+      }
+
+      .amount{
+        width: 14%;
+      }
+
+      .balance{
+        width: 19%;
+      }
+
+      .item{
+        color: white;
+        text-align: center;
+      }
+    }
   }
 }
 

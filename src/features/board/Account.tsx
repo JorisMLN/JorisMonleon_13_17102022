@@ -28,6 +28,12 @@ const Account : React.FC = () => {
             <div className='account__head--description'>${accountSelected.description}</div>
           </div>
           <div className='account__body'>
+            <div className='account__body--legend'>
+              <div className='item date'>Date</div>
+              <div className='item desc'>Description</div>
+              <div className='item amount'>Amount</div>
+              <div className='item balance'>Balance</div>
+            </div>
             {accountSelected.details.map((line: DetailsType, index: number) => {
               return <DropDown content={line} domIndex={index} key={index}/>
             })}
