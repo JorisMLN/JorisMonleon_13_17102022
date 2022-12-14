@@ -15,11 +15,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 60px;
+    min-height: 60px;
   }
 
   &__body{
-    height: 120px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

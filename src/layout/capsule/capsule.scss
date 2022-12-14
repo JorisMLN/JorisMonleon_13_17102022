@@ -6,13 +6,9 @@
   height: 100vh;
 
   .header{
-    height: 5vh;
+    height: 65px;
     display: flex;
     justify-content: space-between;
-
-    // img{
-    //   height: 90%;
-    // }
 
     &__rightSide{
       width: 200px;
