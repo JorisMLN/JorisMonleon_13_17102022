@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+// --- --- --- CAPSULE STYLE --- --- --- //
+
+.capsule{
+  height: 100vh;
+
+  .header{
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+
+    &__rightSide{
+      width: 200px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      button{
+        height: 100%;
+      }
+
+      .link{
+        width: 70px;
+        margin-right: 15px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

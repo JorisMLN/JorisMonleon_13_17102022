@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+.dropdown{
+  border: 1px solid $backgroundLogin;
+  background-color: rgb(220, 220, 220);
+  width: 95%;
+  min-height: 60px;
+  font-size: 20px;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &__head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 60px;
+  }
+
+  &__body{
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 50px;
+  }
+
+  .hiddenDrop{
+    display: none;
+  }
+  
+  .visibleDrop{
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .dropdown{
+    width: 98%;
+
+    &__head{
+      height: 60px;
+
+      &--item{
+        font-size: 16px;
+        height: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+      }
+
+      .dropDate{
+        width: 20%;
+      }
+
+      .dropDesc{
+        width: 20%;
+      }
+
+      .dropAmount{
+        width: 10%;
+      }
+
+      &--balance{
+        font-size: 27px;
+      }
+    }
+  }
+}

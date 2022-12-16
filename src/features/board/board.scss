@@ -1,0 +1,134 @@
+@import "../../styles/variables.scss";
+
+.board{
+  height: 87vh;
+  background-color: $backgroundLogin;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__name{
+    height: 100px;
+    width: 800px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
+
+    &--close{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $backgroundLogin;
+
+      h1{
+        margin-top: -10px;
+        margin-bottom: 0px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .reduxNameContent{
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      
+
+      button{
+        width: 15%;
+        height: 38px;
+        border-radius: 0;
+        background-color: #00bc77;
+        color: white;
+        font-size: 18px;
+      }
+    }
+
+    &--open{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .title{
+        margin-top: -10px;
+        font-size: 30px;
+        font-weight: 700;
+      }
+
+      .inputs{
+        display: flex;
+        width: 60%;
+
+        input{
+          height: 30px;
+          margin: 5px;
+          width: 48%;
+        }
+      }
+
+      .buttons{
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+          width: 48%;
+          height: 38px;
+          border-radius: 0;
+          background-color: #00bc77;
+          color: white;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  &__content{
+    height: 132px;
+    width: 80%;
+    margin-top: 30px;
+    background-color: white;
+    padding-left: 35px;
+    padding-right: 35px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--left{
+      .balance{
+        font-size: 40px;
+        font-weight: 700;
+        color: #2c3e50;
+      }
+    }
+
+    button{
+      width: 15%;
+      height: 38px;
+      border-radius: 0;
+      background-color: #00bc77;
+      color: white;
+      font-size: 18px;
+    }
+  }
+}
+
+// tablet responsiv
+@media screen and (max-width: 1024px) {
+  .board{
+    height: 95vh;
+    overflow: hidden;
+
+    &__content{
+      height: 180px;
+
+      button{
+        width: 35%;
+        height: 70px;
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@import "../../styles/variables.scss";
+
+// --- --- --- CAPSULE STYLE --- --- --- //
+
+.home{
+  height: 93vh;
+  // border: 1px solid red;
+
+  .banner{
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+
+    &__image{
+      width: 100%;
+      margin-top: -400px;
+    }
+
+    .heroContent{
+      background-color: white;
+      color: #2c3e50;
+      width: 300px;
+      height: 170px;
+      position: absolute;
+      top: 150px;
+      right: 50px;
+      padding: 1.5rem;
+
+      &--bold{
+        font-size: 24px;
+        font-weight: 700;
+        margin: 1px;
+      }
+
+      &--lite{
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .homeBody{
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: space-between;
+
+    &__item{
+      height: 100%;
+      width: 33%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img{
+        border: 10px solid #00bc77;
+        border-radius: 50%;
+        height: 112px;
+        width: 112px;
+        padding: 10px;
+        margin-top: 34px;
+      }
+
+      p{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 90%;
+        margin-top: -10px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .home{
+    .banner{
+      height: 200px;
+
+      &__image{
+        margin-top: -40px;
+      }
+
+      .heroContent{
+        background-color: transparent;
+        color: #2c3e50;
+        width: 190px;
+        height: 150px;
+        position: absolute;
+        top: 58px;
+        right: 10px;
+        padding: 0rem;
+
+        p{
+          margin: 3px;
+          font-size: 18px;
+          color: black;
+        }
+      }
+    }
+
+    .homeBody{
+      flex-direction: column;
+
+      &__item{
+        width: 100%;
+
+        p{
+          width: 80%;
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+}

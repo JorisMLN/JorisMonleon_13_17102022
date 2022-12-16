@@ -1,11 +1,19 @@
 import React from 'react';
+import Header from './Header';
+import './capsule.scss';
 
-const Capsule : React.FC = () => {
+
+interface ComponentsProps {
+  child: any
+}
+
+const Capsule : React.FC<ComponentsProps> = ({child}) => {
 
   return (
-    <>
-      <div> test </div>
-    </>
+    <div className='capsule'>
+      <Header />
+      {child}
+    </div>
   )
 }
 
