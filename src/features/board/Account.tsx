@@ -4,7 +4,6 @@ import Footer from '../../layout/footer/Footer';
 import DropDown from './DropDown';
 import { DetailsType } from './../../api/mocked';
 import { AccountType } from './../../api/mocked';
-import { accountMocked } from './../../api/mocked';
 import { getTransactions } from '../../api/requestsManager';
 
 const Account : React.FC = () => {

@@ -38,7 +38,7 @@ const Header : React.FC = () => {
     } else {
       setIsLogged(false);
     }
-  })
+  }, [])
  
   return (
     <>

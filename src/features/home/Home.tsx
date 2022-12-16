@@ -23,17 +23,17 @@ const Home : React.FC = () => {
         </div>
         <div className='homeBody'>
           <div className='homeBody__item'>
-            <img src={chatLogo}></img>
+            <img alt='logo de chat' src={chatLogo}></img>
             <h3>You are our #1 priority</h3>
             <p>Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes. </p>
           </div>
           <div className='homeBody__item'>
-            <img src={moneyLogo}></img>
+            <img alt='logo de billet' src={moneyLogo}></img>
             <h3>More savings means higher rates</h3>
             <p>The more you save with us, the higher your interest rate will be!</p>
           </div>
           <div className='homeBody__item'>
-            <img src={shieldLogo}></img>
+            <img alt='logo de bouclier' src={shieldLogo}></img>
             <h3>Security you can trust</h3>
             <p>We use top of the line encryption to make sure your data and money is always safe. </p>
           </div>

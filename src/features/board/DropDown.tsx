@@ -1,7 +1,6 @@
 import './dropDown.scss';
 import { useState } from 'react';
 import { DetailsType } from './../../api/mocked';
-import { AccountType } from '../../api/mocked';
 import arrowDown from '../../assets/arrowDown.png';
 import arrowUp from '../../assets/arrowUp.png';
 
@@ -30,7 +29,7 @@ const DropDown = ({content, domIndex} : Content) => {
   return (
     <div className='dropdown ${domIndex}' onClick={() => handleVisible(`${domIndex}`)}>
       <div className='dropdown__head'>
-        <img src={arrowIcon ? arrowUp : arrowDown}></img>
+        <img alt='chevron icon' src={arrowIcon ? arrowUp : arrowDown}></img>
         <div className='dropdown__head--item dropDate'>{content.date}</div>
         <div className='dropdown__head--item dropDesc'>{content.description}</div>
         <div className='dropdown__head--item dropAmount'>${content.amount}</div>
