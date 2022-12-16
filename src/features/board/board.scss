@@ -10,7 +10,7 @@
 
   &__name{
     height: 100px;
-    width: 300px;
+    width: 800px;
     margin-top: 30px;
     margin-bottom: 30px;
     color: white;
@@ -37,7 +37,7 @@
       
 
       button{
-        width: 40%;
+        width: 15%;
         height: 38px;
         border-radius: 0;
         background-color: #00bc77;
@@ -59,15 +59,17 @@
 
       .inputs{
         display: flex;
+        width: 60%;
 
         input{
           height: 30px;
           margin: 5px;
+          width: 48%;
         }
       }
 
       .buttons{
-        width: 100%;
+        width: 50%;
         display: flex;
         justify-content: space-between;
 

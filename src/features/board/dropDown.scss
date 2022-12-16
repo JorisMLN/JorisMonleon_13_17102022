@@ -37,19 +37,33 @@
 
 @media screen and (max-width: 1024px) {
   .dropdown{
-    width: 95%;
+    width: 98%;
 
     &__head{
+      height: 60px;
 
       &--item{
-        font-size: 17px;
-
+        font-size: 16px;
+        height: 90%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        text-align: center;
       }
 
-      &--dif{
+      .dropDate{
+        width: 20%;
+      }
+
+      .dropDesc{
+        width: 20%;
+      }
+
+      .dropAmount{
+        width: 10%;
+      }
+
+      &--balance{
         font-size: 27px;
       }
     }

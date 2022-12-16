@@ -31,10 +31,10 @@ const DropDown = ({content, domIndex} : Content) => {
     <div className='dropdown ${domIndex}' onClick={() => handleVisible(`${domIndex}`)}>
       <div className='dropdown__head'>
         <img src={arrowIcon ? arrowUp : arrowDown}></img>
-        <div className='dropdown__head--item'>{content.date}</div>
-        <div className='dropdown__head--item'>{content.description}</div>
-        <div className='dropdown__head--item'>{content.amount}</div>
-        <div className='dropdown__head--dif'>{content.balance}</div>
+        <div className='dropdown__head--item dropDate'>{content.date}</div>
+        <div className='dropdown__head--item dropDesc'>{content.description}</div>
+        <div className='dropdown__head--item dropAmount'>${content.amount}</div>
+        <div className='dropdown__head--balance'>${content.balance}</div>
       </div>
       <div id={`domIndex${domIndex}`} className='dropdown__body hiddenDrop'>
         <div>Transaction Type: {content.transactionType}</div>

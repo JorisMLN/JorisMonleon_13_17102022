@@ -77,6 +77,34 @@
     &__body{
       height: 76%;
       padding-top: 10px;
+      width: 99%;
+
+      &--legend{
+        display: flex;
+        justify-content: flex-end;
+        width: 90%;
+  
+        .date{
+          width: 26%;
+        }
+  
+        .desc{
+          width: 26%;
+        }
+  
+        .amount{
+          width: 18%;
+        }
+  
+        .balance{
+          width: 25%;
+        }
+  
+        .item{
+          color: white;
+          text-align: center;
+        }
+      }
     }
   }
 }
