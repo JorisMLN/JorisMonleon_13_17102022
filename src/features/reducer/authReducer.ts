@@ -47,6 +47,7 @@ const authSlice = createSlice({
       state.token = action.payload
       state.firstName = action.payload
       state.lastName = action.payload
+      axiosInstance.defaults.headers.Authorization = null;
     }
   }
 });
