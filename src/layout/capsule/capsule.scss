@@ -15,21 +15,26 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      margin-right: 20px;
 
       button{
         height: 100%;
       }
 
       .link{
-        width: 70px;
         margin-right: 15px;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        font-weight: 600;
 
         &:hover{
           text-decoration: underline;
         }
+      }
+
+      .icon{
+        margin-right: 5px;
       }
     }
   }

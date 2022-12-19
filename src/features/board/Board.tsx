@@ -27,7 +27,6 @@ const Board : React.FC = () => {
   }
 
   const fetchProfile = async () : Promise<void> => {
-    console.log('test')
     const response : GetProfileResponse = await getProfile();
     console.log('getProfile response ->', response);
 

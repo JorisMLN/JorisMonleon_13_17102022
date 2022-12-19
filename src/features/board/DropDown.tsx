@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { DetailsType } from './../../api/mocked';
 import arrowDown from '../../assets/arrowDown.png';
 import arrowUp from '../../assets/arrowUp.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencil } from '@fortawesome/free-solid-svg-icons';
 
 interface Content {
   content : DetailsType
@@ -37,8 +39,8 @@ const DropDown = ({content, domIndex} : Content) => {
       </div>
       <div id={`domIndex${domIndex}`} className='dropdown__body hiddenDrop'>
         <div>Transaction Type: {content.transactionType}</div>
-        <div>Category: {content.category}</div>
-        <div>Notes: {content.notes}</div>
+        <div>Category: {content.category} <FontAwesomeIcon icon={faPencil} /></div>
+        <div>Notes: {content.notes} <FontAwesomeIcon icon={faPencil} /></div>
       </div>
     </div>
   )
